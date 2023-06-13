@@ -1,0 +1,15 @@
+<!-- app.component.html -->
+<header>
+  <h1>E-Learning Platform</h1>
+</header>
+
+<nav>
+  <a routerLink="/">Home</a>
+  <a routerLink="/search">Search</a>
+  <a routerLink="/login" *ngIf="!isLoggedIn()">Login</a>
+  <a (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
+</nav>
+
+<div class="router-container">
+  <router-outlet></router-outlet>
+</div>
