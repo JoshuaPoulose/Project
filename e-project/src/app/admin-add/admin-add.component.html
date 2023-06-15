@@ -1,0 +1,27 @@
+<div class="admin-dashboard">
+    <h1>Add Course</h1>
+  
+    <form>
+      <label for="courseId">Course ID:</label>
+      <input type="text" id="courseId" name="courseId" required>
+  
+      <label for="courseName">Course Name:</label>
+      <input type="text" id="courseName" name="courseName" required>
+  
+      <div class="topics-container">
+        <div *ngFor="let topic of topics; let i = index" class="topic-row">
+            <label for="topic">Topics</label>
+          <input type="text" name="topic" required [(ngModel)]="topics[i]">
+          <button class="attach-file-btn" (click)="attachFile(i)">Attach File</button>
+          <button class="delete-topic-btn" (click)="deleteTopic(i)">delete<i class="fas fa-trash"></i></button>
+          
+        </div>
+      </div>
+      <br>
+      <br>
+  
+      <button type="button" (click)="addTopic()"><i class="fas fa-plus"></i> Add Topic</button>
+      <button type="submit">Add Course</button>
+    </form>
+  </div>
+  
