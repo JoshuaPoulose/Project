@@ -1,5 +1,8 @@
-
+import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
+import { Course } from "../course";
+import { CourseService } from "../course.service";
+import { Topic } from "../topic";
 
 @Component({
   selector: 'app-admin-add',
@@ -7,89 +10,49 @@ import { Component } from "@angular/core";
   styleUrls: ['./admin-add.component.css']
 })
 export class AdminAddComponent {
+  title: string='';
+  description:string='';
+  topics: Topic[]=[];
+  file!: File;
 
-  topics: string[]=[];
 
-  deleteTopic(index: number): void {
-    this.topics.splice(index, 1);
+
+  onImageChange(event: Event): void {
+    const fileList: FileList | null = (event.target as HTMLInputElement).files;
+    if (fileList && fileList.length > 0) {
+      this.file = fileList[0];
+      // Perform additional operations with the selected image if needed
+    }
   }
+  
+
+  constructor(private http:HttpClient,private courseservice:CourseService){}
 
   addTopic(): void {
-    this.topics.push('');
-    console.log(this.topics);
+    const topic = new Topic('','');
+    this.topics.push(topic);
   }
-
-  attachFile(index: number): void {
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = 'application/pdf'; // Specify the accepted file types here
-    fileInput.addEventListener('change', (event) => {
-      const files = (event.target as HTMLInputElement).files;
-      // Handle the selected files, e.g., store them or perform any other operations
-      console.log('Selected Files:', files);
-    });
-    fileInput.click();
+  onFileChange(event: any): void {
+   const fileList: FileList = event.target.files;
+    if (fileList.length > 0) {
+      this.file = fileList[0];
+    }
   }
+    addCourse(): void {
+      const course = new Course(this.title, this.description,this.topics );
+      console.log(course)
+      this.courseservice.addCourse(course)
+        .subscribe(
+          (response: any) => {
+            console.log('Course added successfully:', response);
+          },
+          (error: any) => {
+            console.error('Failed to add course:', error);
 
-  convertTopicsToString(): string {
-    return this.topics.join(', ');
+          }
+        );
+
+    }
+
   }
-}
-
-// import { Component } from '@angular/core';
-
-// interface Topic {
-//   topic: string;
-//   description: string;
-//   file: File | null;
-// }
-
-// @Component({
-//     selector: 'app-admin-add',
-//     templateUrl: './admin-add.component.html',
-//     styleUrls: ['./admin-add.component.css']
-//   })
-//   export class AdminAddComponent {
-//   courseName: string = '';
-//   courseId: string = '';
-//   topics: Topic[] = [];
-//   isFileAttached = false;
-
-//   addTopic(): void {
-//     this.topics.push({
-//       topic: '',
-//       description: '',
-//       file: null
-//     });
-//   }
-
-//   removeTopic(index: number): void {
-//     this.topics.splice(index, 1);
-//     this.checkFileAttached();
-//   }
-
-//   fileSelected(event: Event, index: number): void {
-//     const inputElement = event.target as HTMLInputElement;
-//     const files = inputElement.files;
-//     if (files && files.length > 0) {
-//       this.topics[index].file = files[0];
-//     } else {
-//       this.topics[index].file = null;
-//     }
-//     this.checkFileAttached();
-//   }
-
-//   checkFileAttached(): void {
-//     this.isFileAttached = this.topics.some(topic => topic.file !== null);
-//   }
-
-//   submitForm(): void {
-//     // Perform form submission logic here
-//     console.log(this.courseName);
-//     console.log(this.courseId);
-//     console.log(this.topics);
-//   }
-// }
-
-
 

@@ -1,7 +1,14 @@
 nav{
   background-color:#b49966;
+  align-items: center;
+  height: fit-content;
 }
-
+/* .nav-item{
+  margin-left: 200px;
+}
+.navbar-nav {
+  margin-right: 520px;
+} */
 .home-button {
   background-color:#856b24;
   color: #fff;
@@ -10,13 +17,16 @@ nav{
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  margin-left:60px;
+  margin-left: 1100px;
+  
 }
 
 .home-button:hover {
   background-color: #007700;
 }
-
+.admin-page{
+  height: 540px;
+}
 .add-button {
   background-color: #64511e;
   color: #fff;
@@ -32,9 +42,8 @@ nav{
 
 .container {
   display: flex;
-  margin-left:0px;
-  /* background-color: antiquewhite; */
   background-size: cover;
+  align-items: center;
   
 }
 .background
@@ -110,13 +119,22 @@ align-items: center;
 .edit-button:hover {
   background-color: #007700;
 }
-.footer{
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background-color: #b49966;
   color: aliceblue;
   text-decoration: none;
   text-align: center;
-  
+  height: 30px; /* Adjust the height according to your needs */
 }
+
+  
+
+  
+
 
 
 

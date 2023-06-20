@@ -10,7 +10,7 @@ import { CourseSearchComponent } from './course-search/course-search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminAddComponent } from './admin-add/admin-add.component';
+ import { AdminAddComponent } from './admin-add/admin-add.component';
 
 
 
@@ -22,7 +22,8 @@ import { AdminAddComponent } from './admin-add/admin-add.component';
    
     CourseDetailsComponent,
     CourseSearchComponent,
-    HomeComponent,AdminComponent, AdminAddComponent
+    HomeComponent,AdminComponent, 
+     AdminAddComponent
 
   ],
   imports: [
