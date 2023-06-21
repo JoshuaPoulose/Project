@@ -1,5 +1,23 @@
+<header class="header">
+ 
+  <nav class="nav-items">
+    <div class="logo-container">
+     <a href="#" class="logo"><img src="../../assets/Images/logo.PNG" alt="Login" class="logo-icon"></a>
+    </div>
+   
+ 
+     <div class="login-container">
+     <button routerLink="/" title="Home" class="login-button">
+      <img src="../../assets/Images/home.png"  alt="Login" class="login-icon">
+    </button>
+  </div>
+   
+  </nav>
+</header>
 <div class="container">
-  <h1>Add Course</h1>
+  <div class="head">
+    <h4>Add Course</h4>
+  </div>
   <form (ngSubmit)="addCourse()" #courseForm="ngForm">
     <div class="form-group">
       <label for="title">Title</label>
@@ -41,5 +59,8 @@
     <button type="submit" class="btn btn-primary" [disabled]="!courseForm.form.valid">Add Course</button>
   </form>
 </div>
+<footer class="footer" >
+  <h6 style="align-content: center;" >E-Learning Platform </h6>
+</footer>
 
 
