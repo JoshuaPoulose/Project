@@ -15,7 +15,11 @@ export class AdminAddComponent {
   topics: Topic[]=[];
   file!: File;
 
-
+  deleteTopic(index: number): void {
+    this.topics.splice(index, 1);
+  }
+  
+  
 
   onImageChange(event: Event): void {
     const fileList: FileList | null = (event.target as HTMLInputElement).files;
