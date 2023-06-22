@@ -1,13 +1,19 @@
-<div class="background">
-
-  <nav class="navbar navbar-expand-sm navbar-light bg">
-      
-          <h2><strong>logo</strong></h2>
-      
-      
-          <button class="home-button "><strong>Home</strong></button>
-      
-        </nav>
+<!-- <header class="header">
+ 
+  <nav class="nav-items">
+    <div class="logo-container">
+     <a href="#" class="logo"><img src="../../assets/Images/logo.PNG" alt="Login" class="logo-icon"></a>
+    </div>
+   
+ 
+     <div class="login-container">
+     <button routerLink="/" title="Home" class="login-button">
+      <img src="../../assets/Images/home.png"  alt="Login" class="login-icon">
+    </button>
+  </div>
+   
+  </nav>
+</header>
   <div class="admin-page">
 <div class="container">
   <aside class="left-aside">
@@ -15,60 +21,57 @@
   </aside>
   <aside class="right-aside">
     <div class="row">
-      <div class="column">
+      <div class="column"*ngFor="let course of courses" (click)="navigateTo(course)">
         <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 1">
-          course1
+          <img src="../../assets/Images/course.jpg" alt="Course 1">
+          <h3>{{ course.title }}</h3>
           <button class="edit-button">Edit</button>
         </div>
       </div>
-      <div class="column" >
-        <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 2">
-          course2
-          <button class="edit-button">Edit</button>
-        </div>
-      </div>
-      <div class="column">
-        <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 3">
-          course3
-          <button class="edit-button">Edit</button>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 4">
-          course4
-          <button class="edit-button">Edit</button>
-        </div>
-      </div>
-      <div class="column">
-        <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 5">
-          course5
-          <button class="edit-button">Edit</button>
-        </div>
-      </div>
-      <div class="column">
-        <div class="course-card">
-          <img src="../../assets/courses/course.jpg" alt="Course 6">
-          course6
-          <button class="edit-button">Edit</button>
-        </div>
-      </div>
-    </div>
+    </div> 
   </aside>
 </div>
 </div>
 <footer class="footer" >
     <h6 style="align-content: center;" >E-Learning Platform </h6>
-</footer>
+</footer> -->
 
 
+<header class="header">
+  <nav class="nav-items">
+    <div class="logo-container">
+      <a href="#" class="logo">
+        <img src="../../assets/Images/logo.PNG" alt="Login" class="logo-icon">
+      </a>
+    </div>
+    <div class="login-container">
+      <button routerLink="/" title="Home" class="login-button">
+        <img src="../../assets/Images/home.png" alt="Login" class="login-icon">
+      </button>
+    </div>
+  </nav>
+</header>
 
+<div class="admin-page">
+  <div class="container">
+    <aside class="left-aside">
+      <button class="add-button">
+        <i class="bi bi-file-earmark-plus"></i><br>Add
+      </button>
+    </aside>
+    <aside class="right-aside">
+      <div class="row">
+        <div class="column" *ngFor="let course of courses; let i = index">
+          <div class="course-card">
+            <img src="../../assets/Images/course.jpg" alt="Course 1">
+            <h3>{{ course.title }}</h3>
+            <button class="edit-button">Edit</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
 
 
 
