@@ -44,6 +44,10 @@
         <img src="../../assets/Images/logo.PNG" alt="Login" class="logo-icon">
       </a>
     </div>
+    <div class="add-nav">
+    <button class="add-button">
+      <i class="bi bi-file-earmark-plus"></i>Add courses</button>
+    </div>
     <div class="login-container">
       <button routerLink="/" title="Home" class="login-button">
         <img src="../../assets/Images/home.png" alt="Login" class="login-icon">
@@ -54,22 +58,22 @@
 
 <div class="admin-page">
   <div class="container">
-    <aside class="left-aside">
+    <!-- <aside class="left-aside">
       <button class="add-button">
         <i class="bi bi-file-earmark-plus"></i><br>Add
       </button>
-    </aside>
-    <aside class="right-aside">
+    </aside> -->
+    <!-- <aside class="right-aside"> -->
       <div class="row">
         <div class="column" *ngFor="let course of courses; let i = index">
           <div class="course-card">
             <img src="../../assets/Images/course.jpg" alt="Course 1">
             <h3>{{ course.title }}</h3>
-            <button class="edit-button">Edit</button>
+            <button class="edit-button"><i class="bi bi-pencil-fill"></i></button>
           </div>
         </div>
       </div>
-    </aside>
+    <!-- </aside> -->
   </div>
 </div>
 
