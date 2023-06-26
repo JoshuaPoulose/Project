@@ -44,6 +44,7 @@
         <img src="../../assets/Images/logo.PNG" alt="Login" class="logo-icon">
       </a>
     </div>
+    <!-- <div class="head"> Admin Dashboard</div> -->
     <div class="add-nav">
     <button class="add-button">
       <i class="bi bi-file-earmark-plus"></i>Add courses</button>
@@ -58,24 +59,25 @@
 
 <div class="admin-page">
   <div class="container">
-    <!-- <aside class="left-aside">
-      <button class="add-button">
-        <i class="bi bi-file-earmark-plus"></i><br>Add
-      </button>
-    </aside> -->
-    <!-- <aside class="right-aside"> -->
+    
       <div class="row">
         <div class="column" *ngFor="let course of courses; let i = index">
           <div class="course-card">
+            <div class="edit">
             <img src="../../assets/Images/course.jpg" alt="Course 1">
-            <h3>{{ course.title }}</h3>
-            <button class="edit-button"><i class="bi bi-pencil-fill"></i></button>
+            <div class="card-header">
+              {{ course.title }}
+              <button class="edit-button"><i class="bi bi-pencil-fill"></i></button>
+            </div>
           </div>
         </div>
       </div>
-    <!-- </aside> -->
+      </div>
+      
   </div>
 </div>
-
+<footer class="footer" >
+    <h6 style="align-content: center;" >Code Craft </h6>
+</footer>
 
 

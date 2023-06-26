@@ -40,12 +40,18 @@
  margin-left:1000px;
 
 }
-
+.add{
+  margin-left: 200px;
+}
 .logo-container{
   margin-left: -70px;
 }
 .login-button {
   margin-left: 10px; 
+    height: 60px;
+    width: 50px;
+    border: none;
+  
 }
 
 .support-container{

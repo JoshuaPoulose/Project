@@ -1,8 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Component } from "@angular/core";
-import { Course } from "../course";
+
 import { CourseService } from "../course.service";
 import { Topic } from "../topic";
+import { course } from "../course";
+// import { course } from "../course";
+
 
 @Component({
   selector: 'app-admin-add',
@@ -10,53 +13,53 @@ import { Topic } from "../topic";
   styleUrls: ['./admin-add.component.css']
 })
 export class AdminAddComponent {
-  title: string='';
-  description:string='';
-  topics: Topic[]=[];
-  file!: File;
+  title: string = '';
+  description: string = '';
+  topics: Topic[] = [];
+  imageFile!: File;
+
+  constructor(private http: HttpClient, private courseService: CourseService) { }
+
+  addTopic(): void {
+    const topic = new Topic('');
+    this.topics.push(topic);
+  }
 
   deleteTopic(index: number): void {
     this.topics.splice(index, 1);
   }
-  
-  
 
-  onImageChange(event: Event): void {
-    const fileList: FileList | null = (event.target as HTMLInputElement).files;
-    if (fileList && fileList.length > 0) {
-      this.file = fileList[0];
-      // Perform additional operations with the selected image if needed
-    }
-  }
-  
-
-  constructor(private http:HttpClient,private courseservice:CourseService){}
-
-  addTopic(): void {
-    const topic = new Topic('','');
-    this.topics.push(topic);
-  }
-  onFileChange(event: any): void {
-   const fileList: FileList = event.target.files;
+  handleFileInput(event: any, index?: number): void {
+    const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
-      this.file = fileList[0];
+      if (index !== undefined) {
+        this.topics[index].content = fileList[0];
+      } else {
+        // Handle the file input for course description
+        this.description = fileList[0].name;
+      }
     }
   }
-    addCourse(): void {
-      const course = new Course(this.title, this.description,this.topics );
-      console.log(course)
-      this.courseservice.addCourse(course)
-        .subscribe(
-          (response: any) => {
-            console.log('Course added successfully:', response);
-          },
-          (error: any) => {
-            console.error('Failed to add course:', error);
 
-          }
-        );
+  onImageFileChange(event: any) {
+    const file = event.target.files[0];
+    this.imageFile = file;
+  }
 
-    }
+  addCourse(): void {
+    const course1 = new course(this.title, this.description, this.topics, this.imageFile);
+    console.log(course1);
+    this.courseService.addCourse(course1).subscribe(
+      (response) => {
+        console.log('Course added successfully:', response);
+        // Do something with the response if needed
+      },
+      (error) => {
+        console.error('Failed to add course:', error);
+        // Handle the error appropriately
+      }
+    );
+  }
 
   }
 
